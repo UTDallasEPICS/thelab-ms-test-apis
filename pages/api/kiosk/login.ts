@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { UserStore } from "@/pages/api/data/dataTypes";
+import type { UserStore, ErrorResponse } from "@/pages/api/data/dataTypes";
 import { promises as fs } from 'fs';
 
 type Data = {
@@ -8,7 +8,7 @@ type Data = {
 
 let responseJwt:string|undefined = undefined;
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data|null>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data|ErrorResponse>) {
   const users:UserStore = JSON.parse(await fs.readFile(process.cwd() + '/pages/api/data/userStore.json', 'utf8'));
   if (req.method === 'POST') {
     const { fobid } = req.body;
@@ -20,10 +20,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     if (responseJwt) {
         res.status(200).json({ accessToken: responseJwt });
     } else {
-        res.status(401).json(null);
+        res.status(401).json({error: "Unauthorized"});
     }
   } else {
     // Handle any other HTTP method
-    res.status(401).json(null);
+    res.status(405).json({error: "Method not allowed"});
   }
 }

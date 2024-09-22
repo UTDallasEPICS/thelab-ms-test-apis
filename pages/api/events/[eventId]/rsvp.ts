@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { EventStore, UserStore } from "@/pages/api/data/dataTypes";
+import type { EventStore, UserStore, ErrorResponse} from "@/pages/api/data/dataTypes";
 import { promises as fs } from 'fs';
 import { console } from 'inspector/promises';
  
@@ -8,8 +8,7 @@ type Data = {
     eventID: number;
   };
 
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data|null>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data|ErrorResponse>) {
   if (req.method === 'POST') {
     console.log(req.headers);
     const users:UserStore = JSON.parse(await fs.readFile(process.cwd() + '/pages/api/data/userStore.json', 'utf8'))
@@ -25,12 +24,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     console.log(eventId);
     if (authType === 'Bearer' && authBody) {
         const userID = users.find(user => user.jwt === authBody)?.id || null;
-        if (userID && eventStore.find(event => event.id === eventId)) {
-            res.status(200).json({ userID: userID , eventID:eventId});
+        if (!userID) {
+            res.status(401).json({error: "Unauthorized"});
         }
-    }
-    res.status(400).json(null);
-  }
+        if (userID && eventStore.find(event => event.id === eventId)) {
+            res.status(200).json({ userID: userID , eventID: eventId});
+        }
+        res.status(404).json({error: "Event not found"});
+    } 
+    
+  } else {
     // Handle any other HTTP method
-    res.status(401).json(null);
+    res.status(405).json({error: "Method not allowed"});
+  }
 }

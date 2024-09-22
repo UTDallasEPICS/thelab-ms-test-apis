@@ -1,6 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# theLab.ms Kiosk Project Test APIs
 
-## Getting Started
+This project provides test APIs for theLab.ms Kiosk/Calender project
+
+## Running the Project
+
+The default port for this project is **3030**. To change the port, update the `.env` file.
 
 First, run the development server:
 
@@ -14,27 +18,78 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Use [Postman](https://www.postman.com) to test the APIs or check out the events API at [http://localhost:3030/api/events]
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## API Reference
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### `GET /api/events`
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+**Description**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Retrieves a list of all events.
 
-## Learn More
+**Response**
 
-To learn more about Next.js, take a look at the following resources:
+A JSON array of event objects, in the format:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```typescript
+{
+    id: number,
+    name: string,
+    description: string,
+    start: number,
+    end: number,
+    membersOnly: boolean,
+    totalSeats: number,
+    availableSeats: number
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### `POST /api/kiosk/login`
 
-## Deploy on Vercel
+**Description**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Authenticates a user and returns a session token.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Headers**
+
+```http
+Content-Type: application/json
+```
+
+**Body Parameters**
+
+Required:
+
+- `fobid` *integer* - The unique identifier for the user's fob.
+
+**Response**
+
+| Status | Description |
+| - | - |
+| 200 | Authentication successful. Returns a session token in format ```{ accessToken: <JWT> }```. |
+| 401 | Invalid\missing `fobid`. |
+
+### `POST /api/events/:id/rsvp`
+
+**Description**
+
+RSVPs to an event using an `accessToken` from the login API.
+
+**Path Parameters**
+
+- `id` *integer* - The unique identifier for the event.
+
+**Headers**
+
+```http
+Authentication: "Bearer <accessToken>"
+```
+
+**Response**
+
+| Status | Description |
+| - | - |
+| 200 | RSVP successful. |
+| 401 | Invalid\missing `accessToken`. |
+| 404 | Event not found. |

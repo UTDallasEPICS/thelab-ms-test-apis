@@ -13,3 +13,7 @@ export type EventStore = {
     totalSeats: number;
     availableSeats: number;
   }[];
+
+  export type ErrorResponse = {
+    error: string;
+  }
