@@ -1,0 +1,4 @@
+[
+    {"id": 123456789, "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkiLCJuYW1lIjoiSm9obiBEb2UiLCJpYXQiOjE1MTYyMzkwMjJ9.Xrk0bu1fO2qgX8pLPoaRChq3zB6-oTBcwnOL-lDlaj0"},
+    {"id": 987654321, "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ODc2NTQzMjEiLCJuYW1lIjoiVGhhdCBHdXkiLCJpYXQiOjE1MTYyMzkwMjJ9.cPiiAt0ZloiCB2fhTkh5QjHtc7N-0vLSpBEpf8KIp1Y"}
+]

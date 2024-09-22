@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "name": "Intro to 3D Printing",
+        "description": "Please bring a computer!",
+        "start": 1727038800,
+        "end": 1727046000,
+        "membersOnly": false,
+        "totalSeats": 20,
+        "availableSeats":5
+    },
+    {
+        "id": 2,
+        "name": "Woodshop Night",
+        "description": "Come join us in the woodshop where you can learn how to operate the tools of the woodshop in a safe and productive way. You can also get free advice on any woodworking projects you may have.",
+        "start": 1727218800,
+        "end": 1727222400,
+        "membersOnly": false,
+        "totalSeats": 20,
+        "availableSeats":5
+    },
+    {
+        "id": 3,
+        "name": "Weekly Fiber night @ #stitchlab",
+        "description": "Fiber nights at TheLab.ms every Tuesday night from 7-9 pm. All types of fiber crafting welcome. Knitting, crochet, sewing, weaving, cross stitch, embroidery, spinning, etc. Bring your project up to the #StitchLab and craft alongside fellow enthusiasts of all things fiber.",
+        "start": 1727222400,
+        "end": 1727229600,
+        "membersOnly": false,
+        "totalSeats": 20,
+        "availableSeats":5
+    },
+    {
+        "id": 4,
+        "name": "New Member Keyfob Pickup & Tours (Public Event)",
+        "description": "New members come get your keyfob assigned and activated! Potential members, come see the space!  You will need to sign our electronic waiver before the tour.  You can do this ahead of time at https://waiver.thelab.ms  & be sure input your real name and preferred email address.",
+        "start": 1727222400,
+        "end": 1727226000,
+        "membersOnly": false,
+        "totalSeats": 20,
+        "availableSeats":5
+    },
+    {
+        "id": 5,
+        "name": "Game Night (Member event)",
+        "description": "Game Nights at TheLab.ms are back! Come hang out and play a multitude of different card, board, or video games, Friday nights with your friends in #tabletop.  Game nights are reserved for dues paying members of TheLab.ms and their attended guests.",
+        "start": 1727481600,
+        "end": 1727470800,
+        "membersOnly": true,
+        "totalSeats": 20,
+        "availableSeats":5
+    },
+    {
+        "id": 6,
+        "name": "Woodshop Night",
+        "description": "Come join us in the woodshop where you can learn how to operate the tools of the woodshop in a safe and productive way. You can also get free advice on any woodworking projects you may have.",
+        "start": 1727823600,
+        "end": 1727827200,
+        "membersOnly": false,
+        "totalSeats": 20,
+        "availableSeats":5
+    },
+    {
+        "id": 7,
+        "name": "Weekly Fiber night @ #stitchlab",
+        "description": "Fiber nights at TheLab.ms every Tuesday night from 7-9 pm. All types of fiber crafting welcome. Knitting, crochet, sewing, weaving, cross stitch, embroidery, spinning, etc. Bring your project up to the #StitchLab and craft alongside fellow enthusiasts of all things fiber.",
+        "start": 1727827200,
+        "end": 1727834400,
+        "membersOnly": false,
+        "totalSeats": 20,
+        "availableSeats":5
+    },
+    {
+        "id": 8,
+        "name": "New Member Keyfob Pickup & Tours (Public Event)",
+        "description": "New members come get your keyfob assigned and activated! Potential members, come see the space!  You will need to sign our electronic waiver before the tour.  You can do this ahead of time at https://waiver.thelab.ms  & be sure input your real name and preferred email address.",
+        "start": 1727827200,
+        "end": 1727830800,
+        "membersOnly": false,
+        "totalSeats": 20,
+        "availableSeats":5
+    },
+    {
+        "id": 9,
+        "name": "Monthly Membership Meeting",
+        "description": "This meeting is open to all members, and their guests, to get to know each other, and to find out what opportunities are available at the makerspace.",
+        "start": 1728003600,
+        "end": 1728005400,
+        "membersOnly": false,
+        "totalSeats": 20,
+        "availableSeats":5
+    },
+    {
+        "id": 10,
+        "name": "Game Night (Member event)",
+        "description": "Game Nights at TheLab.ms are back! Come hang out and play a multitude of different card, board, or video games, Friday nights with your friends in #tabletop.  Game nights are reserved for dues paying members of TheLab.ms and their attended guests.",
+        "start": 1728086400,
+        "end": 1728075600,
+        "membersOnly": true,
+        "totalSeats": 20,
+        "availableSeats":5
+    }
+]
