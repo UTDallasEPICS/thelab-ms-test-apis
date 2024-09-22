@@ -13,7 +13,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   if (req.method === 'POST') {
     const { fobid } = req.body;
     console.log(`Received fobid: ${fobid}`);
-    fobid !== undefined && (responseJwt= users.find(user => user.id === Number(fobid))?.jwt);
+    if (fobid !== undefined) {
+      responseJwt= users.find(user => user.id === Number(fobid))?.jwt;
+    }
     // Process a POST request
     if (responseJwt) {
         res.status(200).json({ accessToken: responseJwt });

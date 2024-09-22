@@ -1,18 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import localFont from "next/font/local";
 import styles from "@/styles/Home.module.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export default function Home() {
   return (
@@ -24,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
+        className={`${styles.page}`}
       >
         <main className={styles.main}>
           <Image
@@ -37,26 +25,19 @@ export default function Home() {
           />
           <ol>
             <li>
-              Get started by editing <code>pages/index.tsx</code>.
+              This is exclusively an API located in  <code>pages/api/*</code>.
             </li>
-            <li>Save and see your changes instantly.</li>
+            <li>The documentation GitHub has information on each route.</li>
           </ol>
 
           <div className={styles.ctas}>
-            <a
-              className={styles.primary}
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          <a
+              href="https://github.com/UTDallasEPICS/thelab-ms-test-apis"
               target="_blank"
               rel="noopener noreferrer"
+              className={styles.secondary}
             >
-              <Image
-                className={styles.logo}
-                src="https://nextjs.org/icons/vercel.svg"
-                alt="Vercel logomark"
-                width={20}
-                height={20}
-              />
-              Deploy now
+              Read API Documentation
             </a>
             <a
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -64,7 +45,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className={styles.secondary}
             >
-              Read our docs
+              Read Next.js docs
             </a>
           </div>
         </main>
