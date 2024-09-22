@@ -8,10 +8,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<EventStore|ErrorResponse>,
 ) {
-if (req.method === 'GET'){
+if (req.method === 'GET')
+{
     const eventStore: EventStore = JSON.parse(await fs.readFile(process.cwd() + '/pages/api/data/eventStore.json', 'utf8'));
-  res.status(200).json(eventStore);
+    res.status(200).json(eventStore);
 } else {
-  res.status(405).send({error: "Method Not Allowed" });
+    res.status(405).send({error: "Method Not Allowed" });
 }
 }

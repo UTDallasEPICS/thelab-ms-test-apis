@@ -18,7 +18,7 @@ pnpm dev
 bun dev
 ```
 
-Use [Postman](https://www.postman.com) to test the APIs or check out the events API at [http://localhost:3030/api/events]
+Use [Postman](https://www.postman.com) to test the APIs or check out the events API at [http://localhost:3030/api/events]. There is a Postman collection, `theLabKiosk.postman_collection.json`, that can be used to test/explore the APIs using the collection variables.
 
 ## API Reference
 

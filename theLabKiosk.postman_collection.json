@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "8f722fab-01be-41fe-b8e1-64a479cb2b71",
+		"name": "theLab Kiosk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14252810"
+	},
+	"item": [
+		{
+			"name": "RSVP",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{JWT}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseAddress}}:{{port}}/api/events/{{eventID}}/rsvp",
+					"host": [
+						"{{baseAddress}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"events",
+						"{{eventID}}",
+						"rsvp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseData = pm.response.json()",
+							"pm.collectionVariables.set(\"JWT\", responseData.accessToken);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fobid\": {{fobID}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseAddress}}:{{port}}/api/kiosk/login",
+					"host": [
+						"{{baseAddress}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"kiosk",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Events",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseAddress}}:{{port}}/api/events",
+					"host": [
+						"{{baseAddress}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "port",
+			"value": "3030",
+			"type": "string"
+		},
+		{
+			"key": "JWT",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "fobID",
+			"value": "123456789",
+			"type": "string"
+		},
+		{
+			"key": "baseAddress",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "eventID",
+			"value": "9",
+			"type": "string"
+		}
+	]
+}

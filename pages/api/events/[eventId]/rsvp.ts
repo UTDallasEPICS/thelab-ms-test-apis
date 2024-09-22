@@ -17,20 +17,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const authBody = (req.headers.authorization || '').split(' ')[1];
     const eventIdStr = req.query.eventId;
     const eventId = parseInt(eventIdStr as string, 10);
-    console.log(eventId);
-    // const eventId = parseInt(router.query.eventId as string, 10);
-    console.log(authType);
-    console.log(authBody);
-    console.log(eventId);
+
     if (authType === 'Bearer' && authBody) {
         const userID = users.find(user => user.jwt === authBody)?.id || null;
         if (!userID) {
+            // Bad bearer JWT
             res.status(401).json({error: "Unauthorized"});
         }
         if (userID && eventStore.find(event => event.id === eventId)) {
             res.status(200).json({ userID: userID , eventID: eventId});
+        } else {
+            // Bad event ID
+            res.status(404).json({error: "Event not found"});
         }
-        res.status(404).json({error: "Event not found"});
     } 
     
   } else {
