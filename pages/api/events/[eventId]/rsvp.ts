@@ -1,6 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-// import { useRouter } from 'next/router';
-import { useParams } from 'next/navigation';
 import type { EventStore, UserStore } from "@/pages/api/data/dataTypes";
 import { promises as fs } from 'fs';
 import { console } from 'inspector/promises';
