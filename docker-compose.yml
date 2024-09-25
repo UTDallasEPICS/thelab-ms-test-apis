@@ -1,0 +1,11 @@
+services:
+  next-app:
+    container_name: thelab-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PORT: ${PORT}
+    restart: always
+    ports:
+      - ${PORT}:${PORT}
